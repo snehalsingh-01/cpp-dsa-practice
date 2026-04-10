@@ -3,7 +3,8 @@
 #include <vector>
 using namespace std;
 
-vector <int> pairSum(vector<int>& num, int target){
+//first try
+/*vector <int> pairSum(vector<int>& num, int target){
     vector <int> ans;
     int sz = num.size();
 
@@ -17,13 +18,37 @@ vector <int> pairSum(vector<int>& num, int target){
         }
     }
     return ans;
+}*/
+
+//second try
+vector <int> pairSum(vector<int>& num, int target){
+    vector <int> ans;
+    int sz = num.size();
+    int st = 0 , end = sz - 1;
+    
+    while ( st < end){
+        int pairSum = num[st] + num[end];
+        if ( pairSum < target){
+            st++;
+        }
+        else if ( pairSum > target){
+            end--;
+        }
+        else {
+            ans.push_back(st);
+            ans.push_back(end);
+            return ans;
+        }
+    }
+    return ans;
 }
 
 int main(){
-    vector <int> num = { 2 , 7 , 11 , 15};
+    vector <int> num = { 2 , 12 , 7 , 15};
     int target = 9;
+
     vector <int> ans = pairSum( num , 9);
-    cout << ans[0] << " " << ans[1];
+    cout << ans[0] << " , " << ans[1];
     cout << endl;
    
 }
