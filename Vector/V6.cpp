@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-//first try
+//first try (brute force approach)
 /*vector <int> pairSum(vector<int>& num, int target){
     vector <int> ans;
     int sz = num.size();
@@ -20,7 +20,7 @@ using namespace std;
     return ans;
 }*/
 
-//second try
+//second try (optimal approach)
 vector <int> pairSum(vector<int>& num, int target){
     vector <int> ans;
     int sz = num.size();
