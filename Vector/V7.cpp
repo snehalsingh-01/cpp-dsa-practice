@@ -18,7 +18,7 @@ using namespace std;
         }
     }
     return -1;
-}*/
+}
 
 //more optimal approach
 int majElement(vector<int>& num){
@@ -38,6 +38,25 @@ int majElement(vector<int>& num){
         }
         if (freq > n/2){
             return ans;
+        }
+    }
+    return ans;
+}*/
+
+//Moore's Voting Algorithm
+int majElement(vector<int>& num){
+    int n = num.size();
+    int freq = 0, ans = 0;
+    
+    for (int i = 0; i < n; i++){
+        if (freq == 0){
+            ans = num[i];
+        }
+        if(ans == num[i]){
+            freq++;
+        }
+        else{
+            freq--;
         }
     }
     return ans;
