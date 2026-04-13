@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-int majElement(vector<int>& num){
+//brute force approach 
+/*int majElement(vector<int>& num){
     int n = num.size();
     for (int val : num){
         int freq = 0;
@@ -16,6 +18,29 @@ int majElement(vector<int>& num){
         }
     }
     return -1;
+}*/
+
+//more optimal approach
+int majElement(vector<int>& num){
+    int n = num.size();
+    //sort
+    sort(num.begin(), num.end());
+
+    // frequency
+    int freq = 1 , ans = num[0];
+    for (int i =1; i < n; i++){
+        if (num[i] == num[i-1]){
+            freq++;
+        }
+        else {
+            freq = 1;
+            ans = num[i];
+        }
+        if (freq > n/2){
+            return ans;
+        }
+    }
+    return ans;
 }
 
 int main(){
