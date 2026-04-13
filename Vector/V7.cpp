@@ -59,6 +59,19 @@ int majElement(vector<int>& num){
             freq--;
         }
     }
+
+    int count = 0;
+    for(int val : num){
+        if( val == ans){
+            count++;
+        }
+    }
+    if( count > n/2){
+         return ans;
+    }
+    else{
+        return -1;
+    }
     return ans;
 }
 
